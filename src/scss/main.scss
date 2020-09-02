@@ -4,10 +4,63 @@
 @import "modules/hello.scss";
 
 body {
-  background: $wtf;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #002105;
+  color: #fff6d6;
   min-height: 100vh;
+}
+
+.editor {
+  display: grid;
+  // grid-template-columns: [left-margin] 1fr [title] 352px [load-button] 160px [save-button] 160px [style-buttons] 160px [right-margin] 1fr;
+  // grid-template-rows: [top-margin] 1fr [title] 96px [editor] 360px [buttons] 40px [bottom-margin] 1fr;
+  grid-template-columns: 1fr repeat(9, 64px) 1fr;
+  grid-template-rows: 1fr repeat(9, 40px) 1fr;
+  column-gap: 32px;
+  row-gap: 24px;
+
+  &__main-header {
+    // grid-area: title / title;
+    grid-column: 2 / 6;
+    grid-row: 2 / 4;
+  }
+
+  &__textarea {
+    //   grid-area: editor / title / editor / save-button;
+    grid-area: 4 / 2 / 10 / 10;
+  }
+
+  &__button {
+    &--bold {
+      grid-area: 4 / 10;
+    }
+    &--cursive {
+      grid-area: 5 / 10;
+    }
+    &--black {
+      grid-area: 6 / 10;
+    }
+    &--blue {
+      grid-area: 7 / 10;
+    }
+    &--green {
+      grid-area: 8 / 10;
+    }
+    &--red {
+      grid-area: 9 / 10;
+    }
+    &--load {
+      grid-column: 6 / 8;
+      grid-row: 10;
+    }
+
+    &--save {
+      grid-column: 8 / 10;
+      grid-row: 10;
+    }
+  }
+}
+
+.footer {
+  background: olivedrab;
+
 }
