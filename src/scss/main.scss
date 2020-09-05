@@ -7,6 +7,7 @@ body {
   background: #002105;
   color: #fff6d6;
   min-height: 100vh;
+  position: relative;
 }
 
 .editor {
@@ -61,6 +62,12 @@ body {
 }
 
 .footer {
+  width: 100vw;
+  display: inline-block;
   background: olivedrab;
-
+  position: absolute;
+  bottom: 0px;
+  padding: 0.5em 0em;
+  display: flex;
+  justify-content: space-around;
 }
