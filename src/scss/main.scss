@@ -11,11 +11,14 @@ body {
 }
 
 .editor {
+
   display: grid;
   // grid-template-columns: [left-margin] 1fr [title] 352px [load-button] 160px [save-button] 160px [style-buttons] 160px [right-margin] 1fr;
   // grid-template-rows: [top-margin] 1fr [title] 96px [editor] 360px [buttons] 40px [bottom-margin] 1fr;
-  grid-template-columns: 1fr repeat(9, 64px) 1fr;
-  grid-template-rows: 1fr repeat(9, 40px) 1fr;
+  // grid-template-columns: 1fr repeat(9, 64px) 1fr;
+  // grid-template-rows: 1fr repeat(9, 40px) 1fr;
+  grid-template-columns: 1fr [editor-start] 352px 3fr 160px 160px [editor-end] 80px 1fr;
+grid-template-rows: 1fr 96px [editor-start] 360px [editor-end] 40px 1fr;
   column-gap: 32px;
   row-gap: 24px;
 
@@ -23,11 +26,13 @@ body {
     // grid-area: title / title;
     grid-column: 2 / 6;
     grid-row: 2 / 4;
+
   }
 
   &__textarea {
     //   grid-area: editor / title / editor / save-button;
-    grid-area: 4 / 2 / 10 / 10;
+    // grid-area: 4 / 2 / 10 / 10;
+    grid-area: editor;
   }
 
   &__button {
