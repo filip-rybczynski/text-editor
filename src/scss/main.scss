@@ -17,15 +17,15 @@ body {
   // grid-template-rows: [top-margin] 1fr [title] 96px [editor] 360px [buttons] 40px [bottom-margin] 1fr;
   // grid-template-columns: 1fr repeat(9, 64px) 1fr;
   // grid-template-rows: 1fr repeat(9, 40px) 1fr;
-  grid-template-columns: 1fr [editor-start] 352px 3fr 160px 160px [editor-end] 80px 1fr;
-grid-template-rows: 1fr 96px [editor-start] 360px [editor-end] 40px 1fr;
+  grid-template-columns: 1fr [editor-start] 352px minmax(0px, 3fr) 352px [editor-end] 80px 1fr;
+  grid-template-rows: 1fr 96px [editor-start] 360px [editor-end] 40px 1fr;
   column-gap: 32px;
   row-gap: 24px;
 
   &__main-header {
     // grid-area: title / title;
-    grid-column: 2 / 6;
-    grid-row: 2 / 4;
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
 
   }
 
@@ -33,37 +33,67 @@ grid-template-rows: 1fr 96px [editor-start] 360px [editor-end] 40px 1fr;
     //   grid-area: editor / title / editor / save-button;
     // grid-area: 4 / 2 / 10 / 10;
     grid-area: editor;
+    resize: none;
   }
 
-  &__button {
-    &--bold {
-      grid-area: 4 / 10;
-    }
-    &--cursive {
-      grid-area: 5 / 10;
-    }
-    &--black {
-      grid-area: 6 / 10;
-    }
-    &--blue {
-      grid-area: 7 / 10;
-    }
-    &--green {
-      grid-area: 8 / 10;
-    }
-    &--red {
-      grid-area: 9 / 10;
-    }
-    &--load {
-      grid-column: 6 / 8;
-      grid-row: 10;
-    }
+&__side-buttons {
+  grid-column: editor-end / span 1;
+  grid-row: editor;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
 
-    &--save {
-      grid-column: 8 / 10;
-      grid-row: 10;
-    }
+&__bottom-buttons {
+  grid-column: 4 / editor-end;
+  grid-row: editor-end / span 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+&__button {
+  border: solid 2px black;
+  height: 40px;
+  width: 100%;
+
+  &--load {
+    width: 160px;
   }
+  &--save {
+    width: 160px;
+  }
+
+}
+
+  // &__button {
+  //   &--bold {
+  //     grid-area: 4 / 10;
+  //   }
+  //   &--cursive {
+  //     grid-area: 5 / 10;
+  //   }
+  //   &--black {
+  //     grid-area: 6 / 10;
+  //   }
+  //   &--blue {
+  //     grid-area: 7 / 10;
+  //   }
+  //   &--green {
+  //     grid-area: 8 / 10;
+  //   }
+  //   &--red {
+  //     grid-area: 9 / 10;
+  //   }
+  //   &--load {
+  //     grid-column: 6 / 8;
+  //     grid-row: 10;
+  //   }
+
+  //   &--save {
+  //     grid-column: 8 / 10;
+  //     grid-row: 10;
+  //   }
+  // }
 }
 
 .footer {
