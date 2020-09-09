@@ -34,6 +34,24 @@ body {
     // grid-area: 4 / 2 / 10 / 10;
     grid-area: editor;
     resize: none;
+    &--bold {
+      font-weight: bold;
+    }
+    &--cursive {
+      font-style: italic;
+    }
+    &--blue {
+      color: blue;
+    }
+    &--green {
+      color: green;
+    }
+    &--red {
+      color: red;
+    }
+    // &--default {
+    //   
+    // }
   }
 
 &__side-buttons {
