@@ -26,7 +26,7 @@ const greenButton = document.querySelector(".green--js");
 const redButton = document.querySelector(".red--js");
 const defaultButton = document.querySelector(".default--js");
 
-const editorContent = {
+let editorContent = {
   text: "",
   isBold: false,
   isItalics: false,
@@ -41,6 +41,32 @@ loadButton.addEventListener("click", () => {
   // console.log(content);
   // console.log("Loading");
   editor.value = loadedText;
+
+  editorContent = JSON.parse(localStorage.getItem("fullContent"));
+
+  editor.value = editorContent.text;
+
+  if (editorContent.isBold) {
+    editor.classList.add("editor__textarea--bold");
+  }
+  if (editorContent.isItalics) {
+    editor.classList.add("editor__textarea--cursive");
+  }
+  if (editorContent.isBlue) {
+    editor.classList.add("editor__textarea--blue");
+    editor.classList.remove("editor__textarea--green");
+    editor.classList.remove("editor__textarea--red");
+  }
+  if (editorContent.isGreen) {
+    editor.classList.add("editor__textarea--green");
+    editor.classList.remove("editor__textarea--blue");
+    editor.classList.remove("editor__textarea--red");
+  }
+  if (editorContent.isRed) {
+    editor.classList.add("editor__textarea--red");
+    editor.classList.remove("editor__textarea--green");
+    editor.classList.remove("editor__textarea--blue");
+  }
 });
 
 saveButton.addEventListener("click", () => {
@@ -48,13 +74,15 @@ saveButton.addEventListener("click", () => {
   localStorage.setItem("savedText", editor.value);
   // console.log("Saved successfully");
   editorContent.text = editor.value;
+  const editorJSONString = JSON.stringify(editorContent);
+  localStorage.setItem("fullContent", editorJSONString);
+  console.log(JSON.parse(editorJSONString));
 });
 
 boldButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--bold");
   editorContent.isBold = !editorContent.isBold;
-  }
-);
+});
 
 cursiveButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--cursive");
