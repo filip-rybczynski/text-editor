@@ -82,11 +82,13 @@ saveButton.addEventListener("click", () => {
 boldButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--bold");
   editorContent.isBold = !editorContent.isBold;
+  boldButton.classList.toggle("isOn");
 });
 
 cursiveButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--cursive");
   editorContent.isItalics = !editorContent.isItalics;
+  cursiveButton.classList.toggle("isOn");
 });
 
 blueButton.addEventListener("click", () => {
@@ -96,7 +98,9 @@ blueButton.addEventListener("click", () => {
   editorContent.isBlue = !editorContent.isBlue;
   editorContent.isGreen = false;
   editorContent.isRed = false;
-  console.log(editorContent);
+  blueButton.classList.toggle("isOn");
+  greenButton.classList.remove("isOn");
+  redButton.classList.remove("isOn");
 });
 
 greenButton.addEventListener("click", () => {
@@ -106,6 +110,9 @@ greenButton.addEventListener("click", () => {
   editorContent.isGreen = !editorContent.isGreen;
   editorContent.isBlue = false;
   editorContent.isRed = false;
+  greenButton.classList.toggle("isOn");
+  blueButton.classList.remove("isOn");
+  redButton.classList.remove("isOn");
 });
 
 redButton.addEventListener("click", () => {
@@ -115,7 +122,18 @@ redButton.addEventListener("click", () => {
   editorContent.isRed = !editorContent.isRed;
   editorContent.isGreen = false;
   editorContent.isBlue = false;
+  redButton.classList.toggle("isOn");
+  greenButton.classList.remove("isOn");
+  blueButton.classList.remove("isOn");
 });
+
+// redButton.addEventListener("mousedown", () => {
+//     redButton.classList.add("isOn");
+// })
+
+// redButton.addEventListener("mouseout", () => {
+//     redButton.classList.toggle("isOn");
+// })
 
 defaultButton.addEventListener("click", () => {
   editor.classList.remove("editor__textarea--blue");
@@ -128,4 +146,9 @@ defaultButton.addEventListener("click", () => {
   editorContent.isRed = false;
   editorContent.isGreen = false;
   editorContent.isBlue = false;
+  boldButton.classList.remove("isOn");
+  cursiveButton.classList.remove("isOn");
+  blueButton.classList.remove("isOn");
+  redButton.classList.remove("isOn");
+  greenButton.classList.remove("isOn");
 });

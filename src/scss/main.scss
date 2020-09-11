@@ -8,6 +8,12 @@ body {
   color: #fff6d6;
   min-height: 100vh;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header-text {
+  font-size: 4em;
+  margin-top: 0.1em;
 }
 
 .editor {
@@ -17,14 +23,16 @@ body {
   // grid-template-rows: [top-margin] 1fr [title] 96px [editor] 360px [buttons] 40px [bottom-margin] 1fr;
   // grid-template-columns: 1fr repeat(9, 64px) 1fr;
   // grid-template-rows: 1fr repeat(9, 40px) 1fr;
-  grid-template-columns: 1fr [editor-start] 352px minmax(0px, 3fr) 352px [editor-end] 80px 1fr;
-  grid-template-rows: 1fr 96px [editor-start] 360px [editor-end] 40px 1fr;
+  grid-template-columns: 1fr [editor-start] 352px minmax(0px, 3fr) 352px [editor-end] 100px 1fr;
+  grid-template-rows: 1fr 80px [editor-start] 360px [editor-end] 40px 1fr;
   column-gap: 32px;
   row-gap: 24px;
+  min-height: 100vh;
+  min-height: calc(100vh - 36px);
 
   &__main-header {
     // grid-area: title / title;
-    grid-column: 2 / span 2;
+    grid-column: 2 / span 3;
     grid-row: 2 / span 1;
 
   }
@@ -67,20 +75,90 @@ body {
   grid-row: editor-end / span 1;
   display: flex;
   justify-content: space-between;
+  font-weight: bold;
 }
 
 &__button {
-  border: solid 2px black;
+  border: outset 4px;
   height: 40px;
   width: 100%;
+  font-weight: inherit;
 
   &--load {
     width: 160px;
+
   }
   &--save {
     width: 160px;
+    background: midnightblue;
+    color: beige;
+    border-color: midnightblue;
   }
 
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--cursive {
+    font-style: italic;
+  }
+
+  &--blue {
+    text-align: left;
+    &::before {
+      content: '';
+      height: 0.75em;
+      width: 0.75em;
+      background: blue;
+      display: inline-block;
+      border-radius: 50%;
+      margin: 0px 6px;
+
+    }
+  }
+
+  &--green {
+    text-align: left;
+    &::before {
+      content: '';
+      height: 0.75em;
+      width: 0.75em;
+      background: green;
+      display: inline-block;
+      border-radius: 50%;
+      margin: 0px 6px;
+    }
+  }
+
+  &--red {
+    text-align: left;
+    &::before {
+      content: '';
+      height: 0.75em;
+      width: 0.75em;
+      background: red;
+      display: inline-block;
+      border-radius: 50%;
+      margin: 0px 6px;
+    }
+  }
+
+  &--default {
+    background: gray;
+    border-color: gray;
+    color: beige;
+  }
+
+}
+
+.isOn {
+  background: #222020;
+  color: beige;
+  border: inset 4px #222020;
+&::before {
+  box-sizing: border-box;
+  border: 1px solid beige;
+}
 }
 
   // &__button {
@@ -123,4 +201,5 @@ body {
   padding: 0.5em 0em;
   display: flex;
   justify-content: space-around;
+  border-top: groove 2px darkslategrey;
 }
