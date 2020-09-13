@@ -1,4 +1,4 @@
-![Editor preview](src/assets/img/Editor preview.png)
+![Editor preview](src/assets/img/Editor%20preview.png)
 
 # Simple text editor
 
