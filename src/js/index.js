@@ -48,24 +48,35 @@ loadButton.addEventListener("click", () => {
 
   if (editorContent.isBold) {
     editor.classList.add("editor__textarea--bold");
+    boldButton.classList.add("isOn");
   }
   if (editorContent.isItalics) {
     editor.classList.add("editor__textarea--cursive");
+    cursiveButton.classList.add("isOn");
   }
   if (editorContent.isBlue) {
     editor.classList.add("editor__textarea--blue");
     editor.classList.remove("editor__textarea--green");
     editor.classList.remove("editor__textarea--red");
+    blueButton.classList.add("isOn");
+    greenButton.classList.remove("isOn");
+    redButton.classList.remove("isOn");
   }
   if (editorContent.isGreen) {
     editor.classList.add("editor__textarea--green");
     editor.classList.remove("editor__textarea--blue");
     editor.classList.remove("editor__textarea--red");
+    greenButton.classList.add("isOn");
+    blueButton.classList.remove("isOn");
+    redButton.classList.remove("isOn");
   }
   if (editorContent.isRed) {
     editor.classList.add("editor__textarea--red");
     editor.classList.remove("editor__textarea--green");
     editor.classList.remove("editor__textarea--blue");
+    redButton.classList.add("isOn");
+    greenButton.classList.remove("isOn");
+    blueButton.classList.remove("isOn");
   }
 });
 

@@ -8,7 +8,7 @@ body {
   color: #fff6d6;
   min-height: 100vh;
   position: relative;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .header-text {
@@ -17,7 +17,6 @@ body {
 }
 
 .editor {
-
   display: grid;
   // grid-template-columns: [left-margin] 1fr [title] 352px [load-button] 160px [save-button] 160px [style-buttons] 160px [right-margin] 1fr;
   // grid-template-rows: [top-margin] 1fr [title] 96px [editor] 360px [buttons] 40px [bottom-margin] 1fr;
@@ -28,13 +27,12 @@ body {
   column-gap: 32px;
   row-gap: 24px;
   min-height: 100vh;
-  min-height: calc(100vh - 36px);
+  min-height: calc(100vh - 37px);
 
   &__main-header {
     // grid-area: title / title;
     grid-column: 2 / span 3;
     grid-row: 2 / span 1;
-
   }
 
   &__textarea {
@@ -58,153 +56,120 @@ body {
       color: red;
     }
     // &--default {
-    //   
+    //
     // }
   }
 
-&__side-buttons {
-  grid-column: editor-end / span 1;
-  grid-row: editor;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-}
-
-&__bottom-buttons {
-  grid-column: 4 / editor-end;
-  grid-row: editor-end / span 1;
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-}
-
-&__button {
-  border: outset 4px;
-  height: 40px;
-  width: 100%;
-  font-weight: inherit;
-
-  &:active {
-    background: #222020;
-    color: beige;
-    border: inset 4px #222020;
-  }
-  &:active:before {
-      box-sizing: border-box;
-      border: 1px solid beige;
+  &__side-buttons {
+    grid-column: editor-end / span 1;
+    grid-row: editor;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
   }
 
-  &--load {
-    width: 160px;
-
-  }
-  &--save {
-    width: 160px;
-    background: midnightblue;
-    color: beige;
-    border-color: midnightblue;
-    &:active {
-      background: #0a0a30;
-      color: beige;
-      border: inset 4px #0a0a30;
-    }
-  }
-
-  &--bold {
+  &__bottom-buttons {
+    grid-column: 4 / editor-end;
+    grid-row: editor-end / span 1;
+    display: flex;
+    justify-content: space-between;
     font-weight: bold;
   }
 
-  &--cursive {
-    font-style: italic;
-  }
+  &__button {
+    border: outset 4px;
+    height: 40px;
+    width: 100%;
+    font-weight: inherit;
 
-  &--blue {
-    text-align: left;
-    &::before {
-      content: '';
-      height: 0.75em;
-      width: 0.75em;
-      background: blue;
-      display: inline-block;
-      border-radius: 50%;
-      margin: 0px 6px;
+    &:active {
+      background: #222020;
+      color: beige;
+      border: inset 4px #222020;
+    }
+    &:active:before {
+      box-sizing: border-box;
+      border: 1px solid beige;
+    }
 
+    &--load {
+      width: 160px;
+    }
+    &--save {
+      width: 160px;
+      background: midnightblue;
+      color: beige;
+      border-color: midnightblue;
+      &:active {
+        background: #0a0a30;
+        color: beige;
+        border: inset 4px #0a0a30;
+      }
+    }
+
+    &--bold {
+      font-weight: bold;
+    }
+
+    &--cursive {
+      font-style: italic;
+    }
+
+    &--blue {
+      text-align: left;
+      &::before {
+        content: "";
+        height: 0.75em;
+        width: 0.75em;
+        background: blue;
+        display: inline-block;
+        border-radius: 50%;
+        margin: 0px 6px;
+      }
+    }
+
+    &--green {
+      text-align: left;
+      &::before {
+        content: "";
+        height: 0.75em;
+        width: 0.75em;
+        background: green;
+        display: inline-block;
+        border-radius: 50%;
+        margin: 0px 6px;
+      }
+    }
+
+    &--red {
+      text-align: left;
+      &::before {
+        content: "";
+        height: 0.75em;
+        width: 0.75em;
+        background: red;
+        display: inline-block;
+        border-radius: 50%;
+        margin: 0px 6px;
+      }
+    }
+
+    &--default {
+      background: gray;
+      border-color: gray;
+      color: beige;
     }
   }
 
-  &--green {
-    text-align: left;
-    &::before {
-      content: '';
-      height: 0.75em;
-      width: 0.75em;
-      background: green;
-      display: inline-block;
-      border-radius: 50%;
-      margin: 0px 6px;
-    }
-  }
-
-  &--red {
-    text-align: left;
-    &::before {
-      content: '';
-      height: 0.75em;
-      width: 0.75em;
-      background: red;
-      display: inline-block;
-      border-radius: 50%;
-      margin: 0px 6px;
-    }
-  }
-
-  &--default {
-    background: gray;
-    border-color: gray;
+  .isOn {
+    background: #222020;
     color: beige;
+    border: inset 4px #222020;
+    &::before {
+      box-sizing: border-box;
+      border: 1px solid beige;
+    }
   }
-
-}
-
-.isOn {
-  background: #222020;
-  color: beige;
-  border: inset 4px #222020;
-&::before {
-  box-sizing: border-box;
-  border: 1px solid beige;
-}
-}
-
-  // &__button {
-  //   &--bold {
-  //     grid-area: 4 / 10;
-  //   }
-  //   &--cursive {
-  //     grid-area: 5 / 10;
-  //   }
-  //   &--black {
-  //     grid-area: 6 / 10;
-  //   }
-  //   &--blue {
-  //     grid-area: 7 / 10;
-  //   }
-  //   &--green {
-  //     grid-area: 8 / 10;
-  //   }
-  //   &--red {
-  //     grid-area: 9 / 10;
-  //   }
-  //   &--load {
-  //     grid-column: 6 / 8;
-  //     grid-row: 10;
-  //   }
-
-  //   &--save {
-  //     grid-column: 8 / 10;
-  //     grid-row: 10;
-  //   }
-  // }
 }
 
 .footer {
@@ -217,7 +182,7 @@ body {
   padding: 0.5em 0em;
   display: flex;
   justify-content: flex-end;
-  border-top: groove 2px darkslategrey;
+  border-top: ridge 3px #3c5013;
 
   &__element {
     padding: 0em 0.5em;
