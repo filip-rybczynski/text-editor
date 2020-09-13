@@ -7,7 +7,6 @@ body {
   background: #002105;
   color: #fff6d6;
   min-height: 100vh;
-  position: relative;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -168,6 +167,38 @@ body {
     &::before {
       box-sizing: border-box;
       border: 1px solid beige;
+    }
+  }
+}
+
+.instructions {
+  width: 100vh;
+
+  background: olivedrab;
+  opacity: 50%;
+  transform-origin: top right;
+  transform: rotate(-90deg);
+  position: fixed;
+  right: 2em;
+
+  &__toggle {
+    font-size: 1em;
+    text-align: right;
+    padding: 0.5em;
+    padding-right: 1em;
+    margin: 0px;
+
+
+    &:before {
+      content: "";
+      position: relative;
+      bottom: 1.15em;
+      width: 0;
+      height: 0;
+      border-left: 0.5em solid transparent;
+      border-right: 0.5em solid transparent;
+      border-bottom: 1em solid beige;
+      margin-right: 0.5em;
     }
   }
 }
