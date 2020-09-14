@@ -59,6 +59,16 @@ body {
     // }
   }
 
+  &__options {
+    grid-column: editor-start / span 1;
+    grid-row: editor-end / span 1;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+
+    color: beige;
+  }
+
   &__side-buttons {
     grid-column: editor-end / span 1;
     grid-row: editor;
@@ -80,6 +90,7 @@ body {
     height: 40px;
     width: 100%;
     font-weight: inherit;
+    cursor: pointer;
 
     &:active {
       background: #222020;
@@ -173,13 +184,13 @@ body {
 
 .instructions {
   width: 100vh;
-
   background: olivedrab;
   opacity: 50%;
   transform-origin: top right;
   transform: rotate(-90deg);
   position: fixed;
   right: 2em;
+  cursor: pointer;
 
   &__toggle {
     font-size: 1em;

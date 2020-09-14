@@ -6,26 +6,7 @@ import "../scss/main.scss";
 
 /* place your code below */
 
-console.log("HELLO 🚀");
-
-const entry = localStorage.getItem("entry");
-let result = "";
-
-if (entry) {
-  result = entry;
-}
-
 let editor = document.querySelector(".editor__textarea");
-
-const loadButton = document.querySelector(".load--js");
-const saveButton = document.querySelector(".save--js");
-const boldButton = document.querySelector(".bold--js");
-const cursiveButton = document.querySelector(".cursive--js");
-const blueButton = document.querySelector(".blue--js");
-const greenButton = document.querySelector(".green--js");
-const redButton = document.querySelector(".red--js");
-const defaultButton = document.querySelector(".default--js");
-
 let editorContent = {
   text: "",
   isBold: false,
@@ -35,48 +16,107 @@ let editorContent = {
   isRed: false,
 };
 
+const loadButton = document.querySelector(".load--js");
+const saveButton = document.querySelector(".save--js");
+const boldButton = document.querySelector(".bold--js");
+const cursiveButton = document.querySelector(".cursive--js");
+const blueButton = document.querySelector(".blue--js");
+const greenButton = document.querySelector(".green--js");
+const redButton = document.querySelector(".red--js");
+const defaultButton = document.querySelector(".default--js");
+const textOnlyCheckbox = document.querySelector(".text-only--js");
+const autoLoadCheckbox = document.querySelector(".auto-load--js");
+
+const entry = localStorage.getItem("auto-load");
+
+if (entry == "true") {
+  autoLoadCheckbox.checked = true;
+
+  if (localStorage.getItem("text-only") == "true") {
+    textOnlyCheckbox.checked = true;
+    const loadedText = localStorage.getItem("savedText");
+    editor.value = loadedText;
+  } else {
+    let editorContent = JSON.parse(localStorage.getItem("fullContent"));
+
+    editor.value = editorContent.text;
+
+    if (editorContent.isBold) {
+      editor.classList.add("editor__textarea--bold");
+      boldButton.classList.add("isOn");
+    }
+    if (editorContent.isItalics) {
+      editor.classList.add("editor__textarea--cursive");
+      cursiveButton.classList.add("isOn");
+    }
+    if (editorContent.isBlue) {
+      editor.classList.add("editor__textarea--blue");
+      blueButton.classList.add("isOn");
+    }
+    if (editorContent.isGreen) {
+      editor.classList.add("editor__textarea--green");
+      greenButton.classList.add("isOn");
+    }
+    if (editorContent.isRed) {
+      editor.classList.add("editor__textarea--red");
+      redButton.classList.add("isOn");
+    }
+  }
+}
+
+// let onlyText = false;
+// let autoLoad = false;
+
 loadButton.addEventListener("click", () => {
-  const loadedText = localStorage.getItem("savedText");
-  // let content = editor.value;
-  // console.log(content);
-  // console.log("Loading");
-  editor.value = loadedText;
+  const textOnlyOn = document.querySelector(".text-only--js").checked;
+  if (textOnlyOn) {
+    const loadedText = localStorage.getItem("savedText");
 
-  editorContent = JSON.parse(localStorage.getItem("fullContent"));
+    editor.value = loadedText;
+  } else {
+    // console.log(editor.classList);
+    // let test = [...editor.classList];
+    // console.log(test.slice(0,1));
+    editor.classList.remove(
+        // test.slice(1)
+        "editor__textarea--blue",
+        "editor__textarea--cursive",
+        "editor__textarea--green",
+        "editor__textarea--red",
+        "editor__textarea--bold"
+      );
+    //   console.log(editor.classList);
 
-  editor.value = editorContent.text;
-
-  if (editorContent.isBold) {
-    editor.classList.add("editor__textarea--bold");
-    boldButton.classList.add("isOn");
-  }
-  if (editorContent.isItalics) {
-    editor.classList.add("editor__textarea--cursive");
-    cursiveButton.classList.add("isOn");
-  }
-  if (editorContent.isBlue) {
-    editor.classList.add("editor__textarea--blue");
-    editor.classList.remove("editor__textarea--green");
-    editor.classList.remove("editor__textarea--red");
-    blueButton.classList.add("isOn");
+    boldButton.classList.remove("isOn");
+    cursiveButton.classList.remove("isOn");
     greenButton.classList.remove("isOn");
     redButton.classList.remove("isOn");
-  }
-  if (editorContent.isGreen) {
-    editor.classList.add("editor__textarea--green");
-    editor.classList.remove("editor__textarea--blue");
-    editor.classList.remove("editor__textarea--red");
-    greenButton.classList.add("isOn");
     blueButton.classList.remove("isOn");
-    redButton.classList.remove("isOn");
-  }
-  if (editorContent.isRed) {
-    editor.classList.add("editor__textarea--red");
-    editor.classList.remove("editor__textarea--green");
-    editor.classList.remove("editor__textarea--blue");
-    redButton.classList.add("isOn");
-    greenButton.classList.remove("isOn");
-    blueButton.classList.remove("isOn");
+
+    editorContent = JSON.parse(localStorage.getItem("fullContent"));
+
+    editor.value = editorContent.text;
+
+    if (editorContent.isBold) {
+      editor.classList.add("editor__textarea--bold");
+      boldButton.classList.add("isOn");
+    }
+    if (editorContent.isItalics) {
+      editor.classList.add("editor__textarea--cursive");
+      cursiveButton.classList.add("isOn");
+    }
+    if (editorContent.isBlue) {
+      editor.classList.add("editor__textarea--blue");
+      blueButton.classList.add("isOn");
+    }
+    if (editorContent.isGreen) {
+      editor.classList.add("editor__textarea--green");
+      greenButton.classList.add("isOn");
+    }
+    if (editorContent.isRed) {
+      editor.classList.add("editor__textarea--red");
+      redButton.classList.add("isOn");
+    }
   }
 });
 
@@ -87,7 +127,6 @@ saveButton.addEventListener("click", () => {
   editorContent.text = editor.value;
   const editorJSONString = JSON.stringify(editorContent);
   localStorage.setItem("fullContent", editorJSONString);
-  console.log(JSON.parse(editorJSONString));
 });
 
 boldButton.addEventListener("click", () => {
@@ -104,8 +143,7 @@ cursiveButton.addEventListener("click", () => {
 
 blueButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--blue");
-  editor.classList.remove("editor__textarea--green");
-  editor.classList.remove("editor__textarea--red");
+  editor.classList.remove("editor__textarea--green", "editor__textarea--red");
   editorContent.isBlue = !editorContent.isBlue;
   editorContent.isGreen = false;
   editorContent.isRed = false;
@@ -116,8 +154,7 @@ blueButton.addEventListener("click", () => {
 
 greenButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--green");
-  editor.classList.remove("editor__textarea--blue");
-  editor.classList.remove("editor__textarea--red");
+  editor.classList.remove("editor__textarea--blue", "editor__textarea--red");
   editorContent.isGreen = !editorContent.isGreen;
   editorContent.isBlue = false;
   editorContent.isRed = false;
@@ -128,8 +165,7 @@ greenButton.addEventListener("click", () => {
 
 redButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--red");
-  editor.classList.remove("editor__textarea--green");
-  editor.classList.remove("editor__textarea--blue");
+  editor.classList.remove("editor__textarea--green", "editor__textarea--blue");
   editorContent.isRed = !editorContent.isRed;
   editorContent.isGreen = false;
   editorContent.isBlue = false;
@@ -147,11 +183,13 @@ redButton.addEventListener("click", () => {
 // })
 
 defaultButton.addEventListener("click", () => {
-  editor.classList.remove("editor__textarea--blue");
-  editor.classList.remove("editor__textarea--green");
-  editor.classList.remove("editor__textarea--red");
-  editor.classList.remove("editor__textarea--cursive");
-  editor.classList.remove("editor__textarea--bold");
+  editor.classList.remove(
+    "editor__textarea--blue",
+    "editor__textarea--cursive",
+    "editor__textarea--green",
+    "editor__textarea--red",
+    "editor__textarea--bold"
+  );
   editorContent.isBold = false;
   editorContent.isItalics = false;
   editorContent.isRed = false;
@@ -162,4 +200,18 @@ defaultButton.addEventListener("click", () => {
   blueButton.classList.remove("isOn");
   redButton.classList.remove("isOn");
   greenButton.classList.remove("isOn");
+});
+
+textOnlyCheckbox.addEventListener("change", () => {
+  localStorage.setItem(
+    "text-only",
+    document.querySelector(".text-only--js").checked
+  );
+});
+
+autoLoadCheckbox.addEventListener("change", () => {
+  localStorage.setItem(
+    "auto-load",
+    document.querySelector(".auto-load--js").checked
+  );
 });

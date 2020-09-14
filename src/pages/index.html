@@ -34,11 +34,20 @@
   content will be available until browser history is cleared (localStorage functionality is used)
         </section> -->
     </aside>
-
       <textarea
         class="editor__textarea"
         placeholder="Input your text"
       ></textarea>
+      <div class="editor__options">
+        <label>
+        <input type="checkbox" value="text-only" class="text-only--js">
+        Load only text
+      </label>
+      <label>
+        <input type="checkbox" value="auto-load" class="auto-load--js">
+        Auto-load
+      </label>
+      </div>
       <div class="editor__side-buttons">
         <button class="editor__button editor__button--bold bold--js">
           Bold
