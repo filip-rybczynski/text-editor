@@ -7,16 +7,49 @@
   </head>
 
   <body>
-    
     <main class="editor">
       <header class="editor__main-header">
         <h1 class="header-text">SIMPLE EDITOR</h1>
       </header>
 
       <aside class="instructions">
-        <h2 class="instructions__toggle">How it works
-        </h2>
-  
+        <h2 class="instructions__toggle">How it works</h2>
+        <section class="instructions__content">
+          <h3>Text input and styling</h3>
+          <p>
+            Input any text into the text field.
+            Use buttons on the right hand side to format the text - effects can only be applied to the whole text/text field, it's not possible to
+            only apply them to a selected fragment
+            Bold, cursive and color effects can be applied together - only one color can be applied at the
+            same time - to clear all styling, press the "Default" button
+          </p>
+
+          <h3>Functionality and special options</h3>
+          <h4>Save and Load</h4>
+          <p>
+            - when happy with the text, press "Save" to store the text and its
+            formatting in the browser history - use "Load" to recover the saved
+            content - content will be available until browser history is cleared
+            (`localStorage` functionality is used)
+          </p>
+
+            <h4>Load only text</h4>
+            <p>
+              - when this option is selected, the editor will load only text from
+              the latest save. - any style options selected in the editor will be
+              preserved    
+            </p>
+          
+          <h4>Auto-load</h4>
+          <p>
+            - when this option is selected, the editor will always load the latest
+            saved text - This option does not automatically save the editor
+            content. For content to load automatically upon opening the editor, it
+            must be Saved manually first. - can be used together with "Load only
+            text"
+          </p>
+          
+        </section>
         <!-- <section class="instructions__content">
         How to use it?
   Text input
@@ -33,20 +66,20 @@
   use "Load" to recover the saved content
   content will be available until browser history is cleared (localStorage functionality is used)
         </section> -->
-    </aside>
+      </aside>
       <textarea
         class="editor__textarea"
         placeholder="Input your text"
       ></textarea>
       <div class="editor__options">
         <label>
-        <input type="checkbox" value="text-only" class="text-only--js">
-        Load only text
-      </label>
-      <label>
-        <input type="checkbox" value="auto-load" class="auto-load--js">
-        Auto-load
-      </label>
+          <input type="checkbox" value="text-only" class="text-only--js" />
+          Load only text
+        </label>
+        <label>
+          <input type="checkbox" value="auto-load" class="auto-load--js" />
+          Auto-load
+        </label>
       </div>
       <div class="editor__side-buttons">
         <button class="editor__button editor__button--bold bold--js">
@@ -79,21 +112,20 @@
     <footer class="footer">
       <span class="footer__element">Made by Filip Rybczyński, 2020 </span>
 
-        <!-- <img src="../assets/img/GitHub-Mark-32px.png"/> -->
-        <a class="footer__element" href="https://github.com/filip-rybczynski" target="_blank"
-          >Github</a
-        >
+      <!-- <img src="../assets/img/GitHub-Mark-32px.png"/> -->
+      <a
+        class="footer__element"
+        href="https://github.com/filip-rybczynski"
+        target="_blank"
+        >Github</a
+      >
 
-      <a class="footer__element"
+      <a
+        class="footer__element"
         href="https://www.linkedin.com/in/filip-rybczy%C5%84ski/"
         target="_blank"
         >LinkedIn</a
       >
-
     </footer>
-
-
-    
-
   </body>
 </html>
