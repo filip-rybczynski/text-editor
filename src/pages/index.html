@@ -15,40 +15,41 @@
       <aside class="instructions">
         <h2 class="instructions__toggle">How it works</h2>
         <section class="instructions__content">
-          <h3>Text input and styling</h3>
+          <h3>Text styling</h3>
           <p>
-            Input any text into the text field.
-            Use buttons on the right hand side to format the text - effects can only be applied to the whole text/text field, it's not possible to
-            only apply them to a selected fragment
-            Bold, cursive and color effects can be applied together - only one color can be applied at the
-            same time - to clear all styling, press the "Default" button
+            Use buttons on the right hand side to toggle the style or color of
+            the text.<br />
+            Effects can only be applied to the entire text field - it's not
+            possible to only apply them to a particular word or fragment.<br />
+            To clear all styling, use the "Default" button.
           </p>
 
           <h3>Functionality and special options</h3>
           <h4>Save and Load</h4>
           <p>
-            - when happy with the text, press "Save" to store the text and its
-            formatting in the browser history - use "Load" to recover the saved
-            content - content will be available until browser history is cleared
-            (`localStorage` functionality is used)
+            Use "Save" to store the text as well as its styling in the browser
+            history.<br />
+            Use "Load" to recover the saved content.<br />Content will be
+            available until browser history is cleared.
           </p>
 
-            <h4>Load only text</h4>
-            <p>
-              - when this option is selected, the editor will load only text from
-              the latest save. - any style options selected in the editor will be
-              preserved    
-            </p>
-          
-          <h4>Auto-load</h4>
+          <h4>"Load only text"</h4>
           <p>
-            - when this option is selected, the editor will always load the latest
-            saved text - This option does not automatically save the editor
-            content. For content to load automatically upon opening the editor, it
-            must be Saved manually first. - can be used together with "Load only
-            text"
+            When this option is selected, the editor will load only the text
+            from the most recent save.<br />
+            Any style options active in the editor when this is done will be
+            preserved and will affect the loaded text.
           </p>
-          
+
+          <h4>"Auto-load"</h4>
+          <p>
+            When this option is selected, the editor will always load the latest
+            saved content.<br />
+            Can be used together with "Load only text".<br />
+            <b>Note:</b> This option does not automatically save the content of
+            the editor. The editor will load only the content which has most
+            recently been saved by the user.
+          </p>
         </section>
         <!-- <section class="instructions__content">
         How to use it?
