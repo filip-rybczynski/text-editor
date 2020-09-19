@@ -19,7 +19,7 @@ let editorContent = {
 const loadButton = document.querySelector(".load--js");
 const saveButton = document.querySelector(".save--js");
 const boldButton = document.querySelector(".bold--js");
-const cursiveButton = document.querySelector(".cursive--js");
+const italicButton = document.querySelector(".italic--js");
 const blueButton = document.querySelector(".blue--js");
 const greenButton = document.querySelector(".green--js");
 const redButton = document.querySelector(".red--js");
@@ -46,8 +46,8 @@ if (entry == "true") {
       boldButton.classList.add("isOn");
     }
     if (editorContent.isItalics) {
-      editor.classList.add("editor__textarea--cursive");
-      cursiveButton.classList.add("isOn");
+      editor.classList.add("editor__textarea--italic");
+      italicButton.classList.add("isOn");
     }
     if (editorContent.isBlue) {
       editor.classList.add("editor__textarea--blue");
@@ -78,17 +78,17 @@ loadButton.addEventListener("click", () => {
     // let test = [...editor.classList];
     // console.log(test.slice(0,1));
     editor.classList.remove(
-        // test.slice(1)
-        "editor__textarea--blue",
-        "editor__textarea--cursive",
-        "editor__textarea--green",
-        "editor__textarea--red",
-        "editor__textarea--bold"
-      );
+      // test.slice(1)
+      "editor__textarea--blue",
+      "editor__textarea--italic",
+      "editor__textarea--green",
+      "editor__textarea--red",
+      "editor__textarea--bold"
+    );
     //   console.log(editor.classList);
 
     boldButton.classList.remove("isOn");
-    cursiveButton.classList.remove("isOn");
+    italicButton.classList.remove("isOn");
     greenButton.classList.remove("isOn");
     redButton.classList.remove("isOn");
     blueButton.classList.remove("isOn");
@@ -102,8 +102,8 @@ loadButton.addEventListener("click", () => {
       boldButton.classList.add("isOn");
     }
     if (editorContent.isItalics) {
-      editor.classList.add("editor__textarea--cursive");
-      cursiveButton.classList.add("isOn");
+      editor.classList.add("editor__textarea--italic");
+      italicButton.classList.add("isOn");
     }
     if (editorContent.isBlue) {
       editor.classList.add("editor__textarea--blue");
@@ -135,10 +135,10 @@ boldButton.addEventListener("click", () => {
   boldButton.classList.toggle("isOn");
 });
 
-cursiveButton.addEventListener("click", () => {
-  editor.classList.toggle("editor__textarea--cursive");
+italicButton.addEventListener("click", () => {
+  editor.classList.toggle("editor__textarea--italic");
   editorContent.isItalics = !editorContent.isItalics;
-  cursiveButton.classList.toggle("isOn");
+  italicButton.classList.toggle("isOn");
 });
 
 blueButton.addEventListener("click", () => {
@@ -185,7 +185,7 @@ redButton.addEventListener("click", () => {
 defaultButton.addEventListener("click", () => {
   editor.classList.remove(
     "editor__textarea--blue",
-    "editor__textarea--cursive",
+    "editor__textarea--italic",
     "editor__textarea--green",
     "editor__textarea--red",
     "editor__textarea--bold"
@@ -196,7 +196,7 @@ defaultButton.addEventListener("click", () => {
   editorContent.isGreen = false;
   editorContent.isBlue = false;
   boldButton.classList.remove("isOn");
-  cursiveButton.classList.remove("isOn");
+  italicButton.classList.remove("isOn");
   blueButton.classList.remove("isOn");
   redButton.classList.remove("isOn");
   greenButton.classList.remove("isOn");
@@ -214,4 +214,27 @@ autoLoadCheckbox.addEventListener("change", () => {
     "auto-load",
     document.querySelector(".auto-load--js").checked
   );
+});
+
+const openInstructions = document.querySelector(".open--js");
+const toggleArrow = document.querySelector(".instructions__toggle:before")
+const instructions = document.querySelector(".instructions--js");
+let areInstHidden = true;
+
+console.log(toggleArrow);
+
+openInstructions.addEventListener("click", () => {
+  if (areInstHidden) {
+    instructions.style.right = "0em";
+    document.documentElement.style.setProperty("--arrow-border-bottom", "0");
+    document.documentElement.style.setProperty("--arrow-border-top", "1em solid beige");
+    document.documentElement.style.setProperty("--arrow-position", "-1.15em");
+
+  } else {
+    instructions.style.right = "-36em";
+    document.documentElement.style.setProperty("--arrow-border-top", "0");
+    document.documentElement.style.setProperty("--arrow-border-bottom", "1em solid beige");
+    document.documentElement.style.setProperty("--arrow-position", "1.15em");
+  }
+  areInstHidden = !areInstHidden;
 });

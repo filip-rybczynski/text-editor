@@ -3,6 +3,12 @@
 @import "_variables";
 @import "modules/hello.scss";
 
+:root {
+  --arrow-border-bottom: 1em solid beige;
+--arrow-border-top: 0;
+--arrow-position: 1.15em;
+}
+
 body {
   background: #002105;
   color: #fff6d6;
@@ -43,7 +49,7 @@ body {
     &--bold {
       font-weight: bold;
     }
-    &--cursive {
+    &--italic {
       font-style: italic;
     }
     &--blue {
@@ -122,7 +128,7 @@ body {
       font-weight: bold;
     }
 
-    &--cursive {
+    &--italic {
       font-style: italic;
     }
 
@@ -184,31 +190,37 @@ body {
 }
 
 .instructions {
-  width: 600px;
+  width: 38em;
   background: olivedrab;
-  
-
+  opacity: 95%;
 
   position: fixed;
-  right: 0px;
-  cursor: pointer;
+  right: -36em;
+
+
   z-index: 5;
+
+  transition: ease-in-out 0.5s;
 
   &__content {
     height: 100vh;
-    width: 500px;
     color: beige;
     opacity: 100%;
-    margin-top: -2em;
+    margin-top: -2.5em;
     margin-left: 3em;
+    padding-right: 1em;
+    overflow: auto;
+    text-align: justify;
+
     & h4 {
       margin: 0em;
     }
   }
 
   &__toggle {
+    display: inline-block;
     box-sizing: border-box;
-    background: hotpink;
+    background: crimson;
     width: 100vh;
     transform-origin: top left;
     transform: rotate(-90deg);
@@ -218,52 +230,23 @@ body {
     text-align: right;
     padding: 0.5em;
     margin: 0px;
-
-
-    &:before {
-      content: "";
-      position: relative;
-      bottom: 1.15em;
-      width: 0;
-      height: 0;
-      border-left: 0.5em solid transparent;
-      border-right: 0.5em solid transparent;
-      border-bottom: 1em solid beige;
-      margin-right: 0.5em;
-    }
-  }
-}
-
-.instructions2 {
-  width: 100vh;
-  background: olivedrab;
-  opacity: 50%;
-  transform-origin: top right;
-  transform: rotate(-90deg);
-  position: fixed;
-  right: 2em;
-  cursor: pointer;
-
-  &__toggle {
-    font-size: 1em;
-    text-align: right;
-    padding: 0.5em;
-    padding-right: 1em;
-    margin: 0px;
-
+    cursor: pointer;
 
     &:before {
       content: "";
       position: relative;
-      bottom: 1.15em;
+      bottom: var(--arrow-position);
       width: 0;
       height: 0;
       border-left: 0.5em solid transparent;
       border-right: 0.5em solid transparent;
-      border-bottom: 1em solid beige;
+      border-bottom: var(--arrow-border-bottom);
+      border-top: var(--arrow-border-top);
       margin-right: 0.5em;
     }
+
   }
+
 }
 
 .footer {
@@ -282,4 +265,8 @@ body {
   &__element {
     padding: 0em 0.5em;
   }
+}
+
+p {
+  line-height: 1.3em;
 }

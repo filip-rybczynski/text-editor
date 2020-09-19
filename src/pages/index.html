@@ -12,14 +12,13 @@
         <h1 class="header-text">SIMPLE EDITOR</h1>
       </header>
 
-      <aside class="instructions">
-        <h2 class="instructions__toggle">How it works</h2>
+      <article class="instructions instructions--hidden instructions--js">
+        <span class="instructions__arrow"></span><h2 class="instructions__toggle instructions__toggle--out open--js">How it works</h2>
         <section class="instructions__content">
           <h3>Text styling</h3>
           <p>
             Use buttons on the right hand side to toggle the style or color of
-            the text.<br />
-            Effects can only be applied to the entire text field - it's not
+            the text. Effects can only be applied to the entire text field - it's not
             possible to only apply them to a particular word or fragment.<br />
             To clear all styling, use the "Default" button.
           </p>
@@ -28,46 +27,27 @@
           <h4>Save and Load</h4>
           <p>
             Use "Save" to store the text as well as its styling in the browser
-            history.<br />
-            Use "Load" to recover the saved content.<br />Content will be
+            history. Use "Load" to recover the saved content.<br />Content will be
             available until browser history is cleared.
           </p>
 
           <h4>"Load only text"</h4>
           <p>
             When this option is selected, the editor will load only the text
-            from the most recent save.<br />
-            Any style options active in the editor when this is done will be
+            from the most recent save. Any style options active in the editor when this is done will be
             preserved and will affect the loaded text.
           </p>
 
           <h4>"Auto-load"</h4>
           <p>
             When this option is selected, the editor will always load the latest
-            saved content.<br />
-            Can be used together with "Load only text".<br />
+            saved content; can be used together with "Load only text".<br />
             <b>Note:</b> This option does not automatically save the content of
             the editor. The editor will load only the content which has most
             recently been saved by the user.
           </p>
         </section>
-        <!-- <section class="instructions__content">
-        How to use it?
-  Text input
-  input any text into the text field
-  text field is not resizable, but scrolling is enabled when the content exceeds available space
-  Text style
-  use buttons on the right hand side to format the text
-  effects can only be applied to the whole text/text field, it's not possible to only apply them to a selected fragment
-  bold, cursive and color effects can be applied together
-  only one color can be applied at the same time
-  to clear all styling, press the "Default" button
-  Save and Load functionality
-  when happy with the text, press "Save" to store the text and its formatting in the browser history
-  use "Load" to recover the saved content
-  content will be available until browser history is cleared (localStorage functionality is used)
-        </section> -->
-      </aside>
+      </article>
       <textarea
         class="editor__textarea"
         placeholder="Input your text"
@@ -86,8 +66,8 @@
         <button class="editor__button editor__button--bold bold--js">
           Bold
         </button>
-        <button class="editor__button editor__button--cursive cursive--js">
-          Cursive
+        <button class="editor__button editor__button--italic italic--js">
+          Italic
         </button>
         <button class="editor__button editor__button--blue blue--js">
           Blue
@@ -111,7 +91,7 @@
     </main>
 
     <footer class="footer">
-      <span class="footer__element">Made by Filip Rybczyński, 2020 </span>
+      <span class="footer__element">Created by Filip Rybczyński, 2020 </span>
 
       <!-- <img src="../assets/img/GitHub-Mark-32px.png"/> -->
       <a
