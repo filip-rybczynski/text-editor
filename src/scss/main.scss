@@ -3,14 +3,8 @@
 @import "_variables";
 @import "modules/hello.scss";
 
-:root {
-  --arrow-border-bottom: 1em solid beige;
---arrow-border-top: 0;
---arrow-position: 1.15em;
-}
-
 body {
-  background: #002105;
+  background: $background;
   color: #fff6d6;
   min-height: 100vh;
   font-family: "Montserrat", sans-serif;
@@ -20,14 +14,14 @@ body {
 .header-text {
   font-size: 4em;
   margin-top: 0.1em;
+  &:first-letter {
+    font-size: 1.3em;
+    color: crimson;
+  }
 }
 
 .editor {
   display: grid;
-  // grid-template-columns: [left-margin] 1fr [title] 352px [load-button] 160px [save-button] 160px [style-buttons] 160px [right-margin] 1fr;
-  // grid-template-rows: [top-margin] 1fr [title] 96px [editor] 360px [buttons] 40px [bottom-margin] 1fr;
-  // grid-template-columns: 1fr repeat(9, 64px) 1fr;
-  // grid-template-rows: 1fr repeat(9, 40px) 1fr;
   grid-template-columns: 1fr [editor-start] 352px minmax(0px, 3fr) 352px [editor-end] 100px 1fr;
   grid-template-rows: 1fr 80px [editor-start] 360px [editor-end] 40px 1fr;
   column-gap: 32px;
@@ -36,14 +30,11 @@ body {
   min-height: calc(100vh - 37px);
 
   &__main-header {
-    // grid-area: title / title;
     grid-column: 2 / span 3;
     grid-row: 2 / span 1;
   }
 
   &__textarea {
-    //   grid-area: editor / title / editor / save-button;
-    // grid-area: 4 / 2 / 10 / 10;
     grid-area: editor;
     resize: none;
     &--bold {
@@ -61,9 +52,6 @@ body {
     &--red {
       color: red;
     }
-    // &--default {
-    //
-    // }
   }
 
   &__options {
@@ -193,18 +181,15 @@ body {
   width: 38em;
   background: olivedrab;
   opacity: 95%;
-
   position: fixed;
   right: -36em;
 
-
   z-index: 5;
 
-  transition: ease-in-out 0.5s;
+  transition: right ease-in-out 0.5s;
 
   &__content {
     height: 100vh;
-    color: beige;
     opacity: 100%;
     margin-top: -2.5em;
     margin-left: 3em;
@@ -244,9 +229,7 @@ body {
       border-top: var(--arrow-border-top);
       margin-right: 0.5em;
     }
-
   }
-
 }
 
 .footer {

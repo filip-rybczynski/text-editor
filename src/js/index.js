@@ -64,9 +64,6 @@ if (entry == "true") {
   }
 }
 
-// let onlyText = false;
-// let autoLoad = false;
-
 loadButton.addEventListener("click", () => {
   const textOnlyOn = document.querySelector(".text-only--js").checked;
   if (textOnlyOn) {
@@ -74,18 +71,13 @@ loadButton.addEventListener("click", () => {
 
     editor.value = loadedText;
   } else {
-    // console.log(editor.classList);
-    // let test = [...editor.classList];
-    // console.log(test.slice(0,1));
     editor.classList.remove(
-      // test.slice(1)
       "editor__textarea--blue",
       "editor__textarea--italic",
       "editor__textarea--green",
       "editor__textarea--red",
       "editor__textarea--bold"
     );
-    //   console.log(editor.classList);
 
     boldButton.classList.remove("isOn");
     italicButton.classList.remove("isOn");
@@ -121,9 +113,7 @@ loadButton.addEventListener("click", () => {
 });
 
 saveButton.addEventListener("click", () => {
-  // let content = editor.value;
   localStorage.setItem("savedText", editor.value);
-  // console.log("Saved successfully");
   editorContent.text = editor.value;
   const editorJSONString = JSON.stringify(editorContent);
   localStorage.setItem("fullContent", editorJSONString);
@@ -173,14 +163,6 @@ redButton.addEventListener("click", () => {
   greenButton.classList.remove("isOn");
   blueButton.classList.remove("isOn");
 });
-
-// redButton.addEventListener("mousedown", () => {
-//     redButton.classList.add("isOn");
-// })
-
-// redButton.addEventListener("mouseout", () => {
-//     redButton.classList.toggle("isOn");
-// })
 
 defaultButton.addEventListener("click", () => {
   editor.classList.remove(
