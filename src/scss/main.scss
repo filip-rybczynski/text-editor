@@ -180,7 +180,7 @@ body {
 .instructions {
   width: 38em;
   background: olivedrab;
-  opacity: 95%;
+  opacity: 0.95;
   position: fixed;
   right: -36em;
 
@@ -190,7 +190,7 @@ body {
 
   &__content {
     height: 100vh;
-    opacity: 100%;
+    opacity: 1;
     margin-top: -2.5em;
     margin-left: 3em;
     padding-right: 1em;
