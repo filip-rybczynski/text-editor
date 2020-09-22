@@ -220,3 +220,22 @@ openInstructions.addEventListener("click", () => {
   }
   areInstHidden = !areInstHidden;
 });
+
+openInstructions.addEventListener("keydown", () => {
+    if (event.keyCode == 13 || event.keyCode == 32) {
+        if (areInstHidden) {
+            instructions.style.right = "0em";
+            document.documentElement.style.setProperty("--arrow-border-bottom", "0");
+            document.documentElement.style.setProperty("--arrow-border-top", "1em solid beige");
+            document.documentElement.style.setProperty("--arrow-position", "-1.15em");
+        
+          } else {
+            instructions.style.right = "-36em";
+            document.documentElement.style.setProperty("--arrow-border-top", "0");
+            document.documentElement.style.setProperty("--arrow-border-bottom", "1em solid beige");
+            document.documentElement.style.setProperty("--arrow-position", "1.15em");
+          }
+          areInstHidden = !areInstHidden;
+        
+    }
+});
