@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="logo.svg"
+   sodipodi:docname="favicon.svg"
    inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
    id="svg8"
    version="1.1"
-   viewBox="0 0 77.411804 55.209393"
-   height="55.209393mm"
-   width="77.411804mm">
+   viewBox="0 0 200 200"
+   height="200mm"
+   width="200mm">
   <defs
      id="defs2">
     <rect
@@ -49,9 +49,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="149.7898"
-     inkscape:cx="118.68287"
-     inkscape:zoom="1.4"
+     inkscape:cy="623.87182"
+     inkscape:cx="-92.92592"
+     inkscape:zoom="0.35"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -71,7 +71,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-47.089622,-81.776138)"
+     transform="translate(-43.290868,49.864729)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Warstwa 1">
@@ -79,21 +79,36 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:Montserrat;-inkscape-font-specification:Montserrat;white-space:pre;shape-inside:url(#rect12);fill:#000000;fill-opacity:1;stroke:none;"
        id="text10"
        xml:space="preserve" />
-    <text
-       transform="matrix(3.9946017,0,0,3.9946017,-141.01465,-244.88696)"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';white-space:pre;shape-inside:url(#rect18);fill:#dc143c;fill-opacity:1;stroke:none;"
-       id="text16"
-       xml:space="preserve"><tspan
-         x="46.113281"
-         y="95.355293"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.3444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#dc143c;fill-opacity:1">S</tspan></tspan></text>
-    <text
-       transform="matrix(3.9946017,0,0,3.9946017,-143.95065,-234.46156)"
-       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect24);fill:#fff6d6;fill-opacity:1;stroke:none;"
-       id="text22"
-       xml:space="preserve"><tspan
-         x="59.066406"
-         y="92.987266"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#fff6d6;fill-opacity:1">E</tspan></tspan></text>
+    <g
+       transform="matrix(2.2834873,0,0,2.2834873,-55.563277,-205.28765)"
+       id="g865">
+      <rect
+         style="fill:#002105;fill-opacity:1;stroke-width:0.25599"
+         id="rect851"
+         width="87.585335"
+         height="87.585335"
+         x="43.290867"
+         y="68.063843" />
+      <g
+         id="g857"
+         transform="translate(1.2880102,2.4756755)">
+        <text
+           transform="matrix(3.9946017,0,0,3.9946017,-141.01465,-244.88696)"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';white-space:pre;shape-inside:url(#rect18);fill:#dc143c;fill-opacity:1;stroke:none;"
+           id="text16"
+           xml:space="preserve"><tspan
+             x="46.113281"
+             y="95.355293"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:18.3444px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#dc143c;fill-opacity:1">S</tspan></tspan></text>
+        <text
+           transform="matrix(3.9946017,0,0,3.9946017,-143.95065,-234.46156)"
+           style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect24);fill:#fff6d6;fill-opacity:1;stroke:none;"
+           id="text22"
+           xml:space="preserve"><tspan
+             x="59.066406"
+             y="92.987266"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1111px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#fff6d6;fill-opacity:1">E</tspan></tspan></text>
+      </g>
+    </g>
   </g>
 </svg>
