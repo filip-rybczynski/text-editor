@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root {
-    --arrow-border-bottom: 1em solid beige;
+  --arrow-border-bottom: 1em solid beige;
   --arrow-border-top: 0;
   --arrow-position: 1.15em;
   }
@@ -11,3 +11,5 @@
   $accent: crimson;
   $light: #fff6d6;
   $dark: #222020; 
+
+  $breakpointMobile: 425px;
