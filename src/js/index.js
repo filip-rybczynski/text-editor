@@ -203,8 +203,6 @@ const toggleArrow = document.querySelector(".instructions__toggle:before")
 const instructions = document.querySelector(".instructions--js");
 let areInstHidden = true;
 
-console.log(toggleArrow);
-
 openInstructions.addEventListener("click", () => {
   if (areInstHidden) {
     instructions.style.right = "0em";
