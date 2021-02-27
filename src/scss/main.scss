@@ -5,7 +5,7 @@
 @import "modules/mobile.scss";
 
 html {
-  min-width: 1000px;
+  min-width: 800px;
   @media (max-width: $breakpointMobile) {
 min-width: 100%;
     
