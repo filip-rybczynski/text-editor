@@ -1,17 +1,21 @@
 @media (max-width: $breakpointMobile) {
-  .header-text {
+  body {
+      padding: 16px;
+  }
+  
+    .header-text {
     font-size: 2em;
   }
 
   .editor {
-    grid-template-columns: 1fr [editor-start] 6fr [editor-end] 2fr 1fr;
+    grid-template-columns: [editor-start] 3fr [editor-end] 100px;
     grid-template-rows: 1fr 80px [editor-start] 360px [editor-end] 40px 1fr;
     column-gap: 4px;
     row-gap: 3px;
 
     &__main-header {
-      // grid-column: 2 / span 3;
-      // grid-row: 2 / span 1;
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
     }
 
     &__textarea {
@@ -69,10 +73,10 @@
         }
     
         &--load {
-          width: 160px;
+          width: 100px;
         }
         &--save {
-          width: 160px;
+          width: 100px;
           background: midnightblue;
           color: $light;
           border-color: midnightblue;

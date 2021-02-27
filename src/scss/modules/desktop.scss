@@ -9,7 +9,7 @@
   
   .editor {
     display: grid;
-    grid-template-columns: 1fr [editor-start] 352px minmax(0px, 3fr) 352px [editor-end] 100px 1fr;
+    grid-template-columns: 1fr [editor-start] minmax(0px, 5fr) 352px [editor-end] 100px 1fr;
     grid-template-rows: 1fr 80px [editor-start] 360px [editor-end] 40px 1fr;
     column-gap: 32px;
     row-gap: 24px;
@@ -62,7 +62,7 @@
     }
   
     &__bottom-buttons {
-      grid-column: 4 / editor-end;
+      grid-column: 3 / editor-end;
       grid-row: editor-end / span 1;
       display: flex;
       justify-content: space-between;
