@@ -93,30 +93,33 @@
       <textarea aria-label="Enter your text" class="editor__textarea" placeholder="Enter your text"></textarea>
       <div class="editor__options">
         <label>
-          <input type="checkbox" value="text-only" class="text-only--js">
+          <input type="checkbox" value="text-only" class="text-only--js" style="display: block">
           Load only text
         </label>
         <label>
-          <input type="checkbox" value="auto-load" class="auto-load--js">
+          <input type="checkbox" value="auto-load" class="auto-load--js" style="display: block">
           Auto-load
         </label>
       </div>
       <div class="editor__side-buttons">
         <button class="editor__button editor__button--bold bold--js">
-          Bold
+          B<span class="editor__button__full-text">old</span>
         </button>
         <button class="editor__button editor__button--italic italic--js">
-          Italic
+          It<span class="editor__button__full-text">alic</span>
         </button>
         <button class="editor__button editor__button--blue blue--js">
-          Blue
+          <span class="editor__button__full-text">Blue</span>
         </button>
         <button class="editor__button editor__button--green green--js">
-          Green
+          <span class="editor__button__full-text">Green</span>
         </button>
-        <button class="editor__button editor__button--red red--js">Red</button>
+        <button class="editor__button editor__button--red red--js">
+          <span class="editor__button__full-text">Red</span>
+        </button>
         <button class="editor__button editor__button--default default--js">
-          Default
+          <span class="editor__button__full-text">Default</span> 
+          <!-- ∅🚫✖⬜ -->
         </button>
       </div>
       <div class="editor__bottom-buttons">
