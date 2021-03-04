@@ -1,63 +1,63 @@
 @media (max-width: $breakpointMobile) {
-  body {
-      padding: 16px;
-  }
   
     .header-text {
     font-size: 2em;
   }
 
   .editor {
-    grid-template-columns: [editor-start] 3fr [editor-end] 100px;
-    grid-template-rows: 1fr 80px [editor-start] 360px [editor-end] 40px 1fr;
-    column-gap: 4px;
+    grid-template-columns: [editor-start] 1fr [editor-end] 50px;
+    grid-template-rows: 60px [editor-start] 4fr [editor-middle] 12fr [editor-end] 60px 40px;
+    column-gap: 0px;
     row-gap: 3px;
+    // max-height: 90vh;
+    padding: 48px 24px;
 
     &__main-header {
       grid-column: 1 / span 2;
-      grid-row: 2 / span 1;
+      grid-row: 1 / span 1;
     }
 
     &__textarea {
       grid-area: editor;
+      border-top-right-radius: 0px;
     }
 
     &__options {
-      // grid-column: editor-start / span 1;
-      // grid-row: editor-end / span 1;
-      // width: 250px;
+      // grid-column: editor-end / span 1;
+      grid-row: 5 / span 1;
+  
+
       // display: flex;
+      // flex-direction: row;
+      // flex-wrap: nowrap;
       // justify-content: space-between;
 
       // color: $light;
 
-      width: fit-content;
+      width: 100%;
     }
 
     &__side-buttons {
-      // grid-column: editor-end / span 1;
-      // grid-row: editor;
-      // display: flex;
-      // flex-flow: column nowrap;
-      // justify-content: space-between;
+      grid-column: editor-end / span 1;
+      grid-row: editor-middle / span 1;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-end;
     }
 
     &__bottom-buttons {
-      // grid-column: 4 / editor-end;
-      // grid-row: editor-end / span 1;
-      // display: flex;
-      // justify-content: space-between;
-      // font-weight: bold;
+      grid-column: editor;
+      grid-row: editor-end / span 1;
+      display: flex;
 
-      flex-direction: column;
     }
 
     &__button {
         text-align: left;
     
-        // border: outset 4px;
-        // border-radius: 4px;
-        // height: 40px;
+        border: solid gray 1px;
+        border-radius: 0px 4px 16px 0px;
+        height: 50px;
         // width: 100%;
         // font-weight: inherit;
         // cursor: pointer;
@@ -73,10 +73,10 @@
         }
     
         &--load {
-          width: 100px;
+          width: 50%;
         }
         &--save {
-          width: 100px;
+          width: 50%; 
           background: midnightblue;
           color: $light;
           border-color: midnightblue;
@@ -87,7 +87,7 @@
           }
     
           @media (max-width: $breakpointMobile) {
-            width: fit-content;
+            
           }
         }
     
@@ -142,6 +142,10 @@
           background: gray;
           border-color: gray;
           color: $light;
+        }
+
+        &__full-text {
+          display: none;
         }
       }
   }
@@ -213,12 +217,14 @@
   }
 
   .footer {
-    // width: 100%;
+    width: 100%;
+    // height: 5vh;
     // font-size: 12px;
     // display: inline-block;
     // background: $secondary-background;
-    // position: absolute;
-    // bottom: 0px;
+    position: absolute;
+    bottom: 0px;
+    // left: 0px;
     // padding: 0.5em 0em;
     // display: flex;
     // justify-content: flex-end;
