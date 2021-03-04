@@ -8,6 +8,7 @@
   }
   
   .editor {
+    padding: 0px 0px 24px;
     display: grid;
     grid-template-columns: 1fr [editor-start] minmax(0px, 5fr) 352px [editor-end] 100px 1fr;
     grid-template-rows: 1fr 80px [editor-start] 360px [editor-end] 40px 1fr;
@@ -46,11 +47,12 @@
     &__options {
       grid-column: editor-start / span 1;
       grid-row: editor-end / span 1;
-      width: 250px;
+      width: 280px;
       display: flex;
       justify-content: space-between;
   
       color: $light;
+
     }
   
     &__side-buttons {
