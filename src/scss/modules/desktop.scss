@@ -156,6 +156,10 @@
         border-color: gray;
         color: $light;
       }
+
+      &-mobile-text {
+        display: none;
+      }
     }
   
     .isOn {

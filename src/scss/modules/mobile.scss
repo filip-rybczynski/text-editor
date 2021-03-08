@@ -60,9 +60,9 @@
     &__button {
         text-align: center;
     
-        // border: solid gray 1px;
         border-radius: 0px 16px 16px 0px;
         height: 50px;
+        font-size: 130%;
         // width: 100%;
         // font-weight: inherit;
         // cursor: pointer;
@@ -151,8 +151,16 @@
           color: $light;
         }
 
-        &__full-text {
+        &-desktop-text {
           display: none;
+        }
+
+        &-mobile-text {
+          display: inline-block;
+          padding: 0px 4px 4px 0px;
+          &--italic {
+            font-family: 'Times New Roman', Times, serif;
+          }
         }
       }
   }
