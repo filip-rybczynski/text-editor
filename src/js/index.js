@@ -201,21 +201,27 @@ autoLoadCheckbox.addEventListener("change", () => {
 const openInstructions = document.querySelector(".open--js");
 const toggleArrow = document.querySelector(".instructions__toggle:before")
 const instructions = document.querySelector(".instructions--js");
+const instructionWidth = instructions.offsetWidth;
 let areInstHidden = true;
 
 openInstructions.addEventListener("click", () => {
+  
+  instructions.classList.toggle("instructions--shown");
+  instructions.classList.toggle("instructions--hidden");
+  
   if (areInstHidden) {
-    instructions.style.right = "0em";
     document.documentElement.style.setProperty("--arrow-border-bottom", "0");
     document.documentElement.style.setProperty("--arrow-border-top", "1em solid beige");
     document.documentElement.style.setProperty("--arrow-position", "-1.15em");
 
   } else {
-    instructions.style.right = "-36em";
     document.documentElement.style.setProperty("--arrow-border-top", "0");
     document.documentElement.style.setProperty("--arrow-border-bottom", "1em solid beige");
     document.documentElement.style.setProperty("--arrow-position", "1.15em");
-  }
+  } 
+
+
+
   areInstHidden = !areInstHidden;
 });
 

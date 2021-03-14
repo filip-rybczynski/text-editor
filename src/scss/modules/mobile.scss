@@ -13,9 +13,17 @@
     // max-height: 90vh;
     padding: 12px 24px;
 
+          @media (max-width: 320px) {
+            grid-template-rows: 90px [editor-start] 1fr [editor-end] 60px 40px;
+      }
+
     &__main-header {
       grid-column: 1 / span 2;
       grid-row: 1 / span 1;
+      @media (max-width: 320px) {
+        width: 50vw;
+        // margin: auto;
+  }
     }
 
     &__textarea {
@@ -189,38 +197,80 @@
   }
 
   .instructions {
-      display: none;
-    // width: 38em;
+      // display: none;
+
+    width: 100vw;
     // background: $secondary-background;
     // opacity: 0.95;
     // position: fixed;
-    // right: -36em;
+    top: 0em;
+
+    font-size: 90%;
+    
+
+    transition: right ease-in-out 0.5s;
   
-    // z-index: 5;
-  
-    // transition: right ease-in-out 0.5s;
-  
-    // &__content {
+    &--hidden {
+      right: -100vw;
+    }
+
+    &--shown {
+      right: 0vw;
+    }
+
+    &__content {
+      
+      
     //   height: 100vh;
     //   opacity: 1;
-    //   margin-top: -2.5em;
-    //   margin-left: 3em;
+      margin-top: 0em;
+
+      margin-left: 0em;
+      
+      padding: 0em 1em;
+      
     //   padding-right: 1em;
     //   overflow: auto;
     //   text-align: justify;
   
-    //   & h4 {
-    //     margin: 0em;
-    //   }
-    // }
+
+    @media (max-width: 410px) {
+      & h2 {
+        width: 60%;
+      }
+      }
+
+      & h3 {
+        text-align: start;
+      }
+
+      & p:last-of-type {
+        margin-bottom: 2.5em;
+      }
+    }
   
-    // &__toggle {
+    &__toggle {
+ 
+      display: flex;
+justify-content: center;
+align-items: center;
+
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      height: 48px;
+      width: 48px;
+
+      border-radius: 50%;
+
+      background: $accent;
+
+      transform: none;
     //   display: inline-block;
     //   box-sizing: border-box;
     //   background: $accent;
     //   width: 100vh;
     //   transform-origin: top left;
-    //   transform: rotate(-90deg);
     //   position: relative;
     //   bottom: -100vh;
     //   font-size: 1em;
@@ -228,20 +278,21 @@
     //   padding: 0.5em;
     //   margin: 0px;
     //   cursor: pointer;
+
+    font-size: 24px;
   
-    //   &:before {
-    //     content: "";
-    //     position: relative;
-    //     bottom: var(--arrow-position);
-    //     width: 0;
-    //     height: 0;
-    //     border-left: 0.5em solid transparent;
-    //     border-right: 0.5em solid transparent;
-    //     border-bottom: var(--arrow-border-bottom);
-    //     border-top: var(--arrow-border-top);
-    //     margin-right: 0.5em;
-    //   }
-    // }
+      &:before {
+ display: none;
+      }
+
+      &--desktop {
+        display: none;
+      }
+
+      &--mobile {
+        display: inline;
+      }
+    }
   }
 
   .footer {

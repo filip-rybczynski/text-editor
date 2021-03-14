@@ -1,52 +1,165 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple editor</title>
-    <meta name="description" content="Your project description">
+    <meta name="description" content="Your project description" />
     <!-- Title -->
-    <meta property="og:title" content="Simple editor">
+    <meta property="og:title" content="Simple editor" />
     <!-- OPTIONAL description. 2-4 sentences. -->
-    <meta property="og:description" content="Simple editor with basic load and save functionality">
+    <meta
+      property="og:description"
+      content="Simple editor with basic load and save functionality"
+    />
     <!-- full url with http(s) ie. https://maciejkorsan.github.io/my-repo/ -->
-    <meta property="og:url" content="https://filip-rybczynski.github.io/text-editor">
+    <meta
+      property="og:url"
+      content="https://filip-rybczynski.github.io/text-editor"
+    />
     <!-- full url to the image with http(s) ie. https://maciejkorsan.github.io/my-repo/assets/img/fb.png. Facebook suggests at least 1200 x 630. -->
-    <meta property="og:image" content="https://filip-rybczynski.github.io/text-editor/preview.png">
+    <meta
+      property="og:image"
+      content="https://filip-rybczynski.github.io/text-editor/preview.png"
+    />
 
     <!-- uncomment the line below to enable PWA  -->
     <!-- <link rel="manifest" href="manifest.json" /> -->
 
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="pwa/apple-icon-180.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="167x167"
+      href="pwa/apple-icon-167.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="pwa/apple-icon-152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="pwa/apple-icon-120.png"
+    />
 
-<link rel="apple-touch-icon" sizes="180x180" href="pwa/apple-icon-180.png">
-<link rel="apple-touch-icon" sizes="167x167" href="pwa/apple-icon-167.png">
-<link rel="apple-touch-icon" sizes="152x152" href="pwa/apple-icon-152.png">
-<link rel="apple-touch-icon" sizes="120x120" href="pwa/apple-icon-120.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<meta name="apple-mobile-web-app-capable" content="yes">
-
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2048-2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2732-2048.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1668-2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2388-1668.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1536-2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2048-1536.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1668-2224.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2224-1668.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1620-2160.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2160-1620.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1242-2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2688-1242.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1125-2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-2436-1125.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-828-1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1792-828.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1080-1920.png" media="(device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1920-1080.png" media="(device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-750-1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1334-750.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-640-1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
-<link rel="apple-touch-startup-image" href="pwa/apple-splash-1136-640.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
-
-</head>
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2048-2732.png"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2732-2048.png"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1668-2388.png"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2388-1668.png"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1536-2048.png"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2048-1536.png"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1668-2224.png"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2224-1668.png"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1620-2160.png"
+      media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2160-1620.png"
+      media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1242-2688.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2688-1242.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1125-2436.png"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-2436-1125.png"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-828-1792.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1792-828.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1080-1920.png"
+      media="(device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1920-1080.png"
+      media="(device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-750-1334.png"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1334-750.png"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-640-1136.png"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="pwa/apple-splash-1136-640.png"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"
+    />
+  </head>
 
   <body>
     <main class="editor">
@@ -55,13 +168,20 @@
       </header>
 
       <article class="instructions instructions--hidden instructions--js">
-        <h2 class="instructions__toggle instructions__toggle--out open--js" tabindex="0">How it works</h2>
+        <span
+          class="instructions__toggle open--js"
+          tabindex="0"
+          ><span class="instructions__toggle--desktop">How it works</span
+          ><span class="instructions__toggle--mobile">?</span></span
+        >
         <section class="instructions__content">
+          <h2>How to use the Simple Editor</h2>
           <h3>Text styling</h3>
           <p>
             Use buttons on the right hand side to toggle the style or color of
-            the text. Effects can only be applied to the entire text field - it's not
-            possible to only apply them to a particular word or fragment.<br>
+            the text. Effects can only be applied to the entire text field -
+            it's not possible to only apply them to a particular word or
+            fragment.<br />
             To clear all styling, use the "Default" button.
           </p>
 
@@ -69,35 +189,39 @@
           <h4>Save and Load</h4>
           <p>
             Use "Save" to store the text as well as its styling in the browser
-            history. Use "Load" to recover the saved content.<br>Content will be
-            available until browser history is cleared.
+            history. Use "Load" to recover the saved content.<br />Content will
+            be available until browser history is cleared.
           </p>
 
           <h4>"Load only text"</h4>
           <p>
             When this option is selected, the editor will load only the text
-            from the most recent save. Any style options active in the editor when this is done will be
-            preserved and will affect the loaded text.
+            from the most recent save. Any style options active in the editor
+            when this is done will be preserved and will affect the loaded text.
           </p>
 
           <h4>"Auto-load"</h4>
           <p>
             When this option is selected, the editor will always load the latest
-            saved content; can be used together with "Load only text".<br>
+            saved content; can be used together with "Load only text".<br />
             <b>Note:</b> This option does not automatically save the content of
             the editor. The editor will load only the content which has most
             recently been saved by the user.
           </p>
         </section>
       </article>
-      <textarea aria-label="Enter your text" class="editor__textarea" placeholder="Enter your text"></textarea>
+      <textarea
+        aria-label="Enter your text"
+        class="editor__textarea"
+        placeholder="Enter your text"
+      ></textarea>
       <div class="editor__options">
         <label class="editor__options-text-only">
-          <input type="checkbox" value="text-only" class="text-only--js">
+          <input type="checkbox" value="text-only" class="text-only--js" />
           Load only text
         </label>
         <label class="editor__options-auto-load">
-          <input type="checkbox" value="auto-load" class="auto-load--js">
+          <input type="checkbox" value="auto-load" class="auto-load--js" />
           Auto-load
         </label>
       </div>
@@ -108,7 +232,10 @@
         </button>
         <button class="editor__button editor__button--italic italic--js">
           <span class="editor__button-desktop-text">Italic</span>
-          <span class="editor__button-mobile-text editor__button-mobile-text--italic">I</span>
+          <span
+            class="editor__button-mobile-text editor__button-mobile-text--italic"
+            >I</span
+          >
         </button>
         <button class="editor__button editor__button--blue blue--js">
           <span class="editor__button-desktop-text">Blue</span>
@@ -120,7 +247,7 @@
           <span class="editor__button-desktop-text">Red</span>
         </button>
         <button class="editor__button editor__button--default default--js">
-          <span class="editor__button-desktop-text">Default</span> 
+          <span class="editor__button-desktop-text">Default</span>
           <span class="editor__button-mobile-text">⊘</span>
         </button>
       </div>
@@ -137,10 +264,19 @@
     <footer class="footer">
       <span class="footer__element">Created by Filip Rybczyński, 2020 </span>
 
-      <a class="footer__element" href="https://github.com/filip-rybczynski" target="_blank">Github</a>
+      <a
+        class="footer__element"
+        href="https://github.com/filip-rybczynski"
+        target="_blank"
+        >Github</a
+      >
 
-      <a class="footer__element" href="https://www.linkedin.com/in/filip-rybczy%C5%84ski/" target="_blank">LinkedIn</a>
+      <a
+        class="footer__element"
+        href="https://www.linkedin.com/in/filip-rybczy%C5%84ski/"
+        target="_blank"
+        >LinkedIn</a
+      >
     </footer>
-  
-
-</body></html>
+  </body>
+</html>
