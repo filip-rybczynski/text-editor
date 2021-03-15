@@ -1,16 +1,10 @@
 import "../scss/main.scss";
 
-// uncomment the lines below to enable PWA
-// import {registerSW} from './pwa.js';
-// registerSW();
-
-/* place your code below */
-
-let editor = document.querySelector(".editor__textarea");
+const editor = document.querySelector(".editor__textarea");
 let editorContent = {
   text: "",
   isBold: false,
-  isItalics: false,
+  isItalic: false,
   isBlue: false,
   isGreen: false,
   isRed: false,
@@ -29,10 +23,10 @@ const autoLoadCheckbox = document.querySelector(".auto-load--js");
 
 const entry = localStorage.getItem("auto-load");
 
-if (entry == "true") {
+if (entry === "true") {
   autoLoadCheckbox.checked = true;
 
-  if (localStorage.getItem("text-only") == "true") {
+  if (localStorage.getItem("text-only") === "true") {
     textOnlyCheckbox.checked = true;
     const loadedText = localStorage.getItem("savedText");
     editor.value = loadedText;
@@ -45,7 +39,7 @@ if (entry == "true") {
       editor.classList.add("editor__textarea--bold");
       boldButton.classList.add("isOn");
     }
-    if (editorContent.isItalics) {
+    if (editorContent.isItalic) {
       editor.classList.add("editor__textarea--italic");
       italicButton.classList.add("isOn");
     }
@@ -93,7 +87,7 @@ loadButton.addEventListener("click", () => {
       editor.classList.add("editor__textarea--bold");
       boldButton.classList.add("isOn");
     }
-    if (editorContent.isItalics) {
+    if (editorContent.isItalic) {
       editor.classList.add("editor__textarea--italic");
       italicButton.classList.add("isOn");
     }
@@ -127,7 +121,7 @@ boldButton.addEventListener("click", () => {
 
 italicButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--italic");
-  editorContent.isItalics = !editorContent.isItalics;
+  editorContent.isItalic = !editorContent.isItalic;
   italicButton.classList.toggle("isOn");
 });
 
@@ -173,7 +167,7 @@ defaultButton.addEventListener("click", () => {
     "editor__textarea--bold"
   );
   editorContent.isBold = false;
-  editorContent.isItalics = false;
+  editorContent.isItalic = false;
   editorContent.isRed = false;
   editorContent.isGreen = false;
   editorContent.isBlue = false;
@@ -225,8 +219,8 @@ openInstructions.addEventListener("click", () => {
   areInstHidden = !areInstHidden;
 });
 
-openInstructions.addEventListener("keydown", () => {
-    if (event.keyCode == 13 || event.keyCode == 32) {
+openInstructions.addEventListener("keydown", (event) => {
+    if (event.which === 13 || event.which === 32) {
         if (areInstHidden) {
             instructions.style.right = "0em";
             document.documentElement.style.setProperty("--arrow-border-bottom", "0");
