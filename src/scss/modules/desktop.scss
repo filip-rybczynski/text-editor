@@ -54,6 +54,11 @@
       color: $light;
 
     }
+
+    &__save-tracker {
+      grid-column: editor-end / span 1;
+      grid-row: editor-end / span 1;
+    }
   
     &__side-buttons {
       grid-column: editor-end / span 1;

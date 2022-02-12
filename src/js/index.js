@@ -1,4 +1,5 @@
 import "../scss/main.scss";
+import "./textarea-handle.js"
 
 const editor = document.querySelector(".editor__textarea");
 let editorContent = {
