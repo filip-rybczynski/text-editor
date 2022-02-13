@@ -1,5 +1,5 @@
 import "../scss/main.scss";
-import "./textarea-handle.js"
+import debounce from "./debounce.js";
 
 const editor = document.querySelector(".editor__textarea");
 let editorContent = {
@@ -21,11 +21,39 @@ const redButton = document.querySelector(".red--js");
 const defaultButton = document.querySelector(".default--js");
 const textOnlyCheckbox = document.querySelector(".text-only--js");
 const autoLoadCheckbox = document.querySelector(".auto-load--js");
+const autoSaveCheckbox = document.querySelector(".auto-save--js");
 
-const entry = localStorage.getItem("auto-load");
+const saveTracker = document.querySelector(".save-tracker--js");
+
+// editor.addEventListener("input", debounce(saveAll, 1000));
+
+const autoSave = debounce(saveAll, 1000, saveTracker);
+
+function saveAll() {
+  localStorage.setItem("savedText", editor.value);
+  editorContent.text = editor.value;
+  const editorJSONString = JSON.stringify(editorContent);
+  localStorage.setItem("fullContent", editorJSONString);
+
+  saveTracker.innerHTML = "Saved!!";
+
+  setTimeout(() => {
+    if(saveTracker.innerHTML === "Saved!!") {
+      saveTracker.innerHTML = ""
+    }
+  }, 2000)
+}
+
+const entry = localStorage.getItem("auto-load"); 
 
 if (entry === "true") {
   autoLoadCheckbox.checked = true;
+
+  autoSaveCheckbox.checked = localStorage.getItem("auto-save") === "true" || false;
+  if (autoSaveCheckbox.checked) {
+    console.log('added!')
+    editor.addEventListener("input", autoSave);
+  }
 
   if (localStorage.getItem("text-only") === "true") {
     textOnlyCheckbox.checked = true;
@@ -107,12 +135,7 @@ loadButton.addEventListener("click", () => {
   }
 });
 
-saveButton.addEventListener("click", () => {
-  localStorage.setItem("savedText", editor.value);
-  editorContent.text = editor.value;
-  const editorJSONString = JSON.stringify(editorContent);
-  localStorage.setItem("fullContent", editorJSONString);
-});
+saveButton.addEventListener("click", saveAll);
 
 boldButton.addEventListener("click", () => {
   editor.classList.toggle("editor__textarea--bold");
@@ -190,6 +213,26 @@ autoLoadCheckbox.addEventListener("change", () => {
   localStorage.setItem(
     "auto-load",
     document.querySelector(".auto-load--js").checked
+  );
+});
+
+autoSaveCheckbox.addEventListener("change", () => {
+
+  if (autoSaveCheckbox.checked) {
+    saveAll()
+    editor.addEventListener("input", autoSave);
+  } else {
+    console.dir(autoSaveCheckbox)
+
+    editor.removeEventListener("input", autoSave);
+  }
+
+
+
+
+  localStorage.setItem(
+    "auto-save",
+    document.querySelector(".auto-save--js").checked
   );
 });
 
