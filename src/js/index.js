@@ -23,9 +23,11 @@ const textOnlyCheckbox = document.querySelector(".text-only--js");
 const autoLoadCheckbox = document.querySelector(".auto-load--js");
 const autoSaveCheckbox = document.querySelector(".auto-save--js");
 
-const saveTracker = document.querySelector(".save-tracker--js");
+const textFormatButtons = document.querySelectorAll(
+  ".editor__side-buttons > .editor__button"
+);
 
-// editor.addEventListener("input", debounce(saveAll, 1000));
+const saveTracker = document.querySelector(".save-tracker--js");
 
 const autoSave = debounce(saveAll, 1000, saveTracker);
 
@@ -38,20 +40,21 @@ function saveAll() {
   saveTracker.innerHTML = "Saved!!";
 
   setTimeout(() => {
-    if(saveTracker.innerHTML === "Saved!!") {
-      saveTracker.innerHTML = ""
+    if (saveTracker.innerHTML === "Saved!!") {
+      saveTracker.innerHTML = "";
     }
-  }, 2000)
+  }, 2000);
 }
 
-const entry = localStorage.getItem("auto-load"); 
+const entry = localStorage.getItem("auto-load");
 
 if (entry === "true") {
   autoLoadCheckbox.checked = true;
 
-  autoSaveCheckbox.checked = localStorage.getItem("auto-save") === "true" || false;
+  autoSaveCheckbox.checked =
+    localStorage.getItem("auto-save") === "true" || false;
   if (autoSaveCheckbox.checked) {
-    console.log('added!')
+    console.log("added!");
     editor.addEventListener("input", autoSave);
   }
 
@@ -217,18 +220,18 @@ autoLoadCheckbox.addEventListener("change", () => {
 });
 
 autoSaveCheckbox.addEventListener("change", () => {
-
   if (autoSaveCheckbox.checked) {
-    saveAll()
+    saveAll();
     editor.addEventListener("input", autoSave);
+
+    textFormatButtons.forEach(button => 
+        button.addEventListener("click", autoSave));
+      
   } else {
-    console.dir(autoSaveCheckbox)
-
     editor.removeEventListener("input", autoSave);
+    textFormatButtons.forEach(button => 
+      button.removeEventListener("click", autoSave));
   }
-
-
-
 
   localStorage.setItem(
     "auto-save",
@@ -237,47 +240,53 @@ autoSaveCheckbox.addEventListener("change", () => {
 });
 
 const openInstructions = document.querySelector(".open--js");
-const toggleArrow = document.querySelector(".instructions__toggle:before")
+const toggleArrow = document.querySelector(".instructions__toggle:before");
 const instructions = document.querySelector(".instructions--js");
 const instructionWidth = instructions.offsetWidth;
 let areInstHidden = true;
 
 openInstructions.addEventListener("click", () => {
-  
   instructions.classList.toggle("instructions--shown");
   instructions.classList.toggle("instructions--hidden");
-  
+
   if (areInstHidden) {
     document.documentElement.style.setProperty("--arrow-border-bottom", "0");
-    document.documentElement.style.setProperty("--arrow-border-top", "1em solid beige");
+    document.documentElement.style.setProperty(
+      "--arrow-border-top",
+      "1em solid beige"
+    );
     document.documentElement.style.setProperty("--arrow-position", "-1.15em");
-
   } else {
     document.documentElement.style.setProperty("--arrow-border-top", "0");
-    document.documentElement.style.setProperty("--arrow-border-bottom", "1em solid beige");
+    document.documentElement.style.setProperty(
+      "--arrow-border-bottom",
+      "1em solid beige"
+    );
     document.documentElement.style.setProperty("--arrow-position", "1.15em");
-  } 
-
-
+  }
 
   areInstHidden = !areInstHidden;
 });
 
 openInstructions.addEventListener("keydown", (event) => {
-    if (event.which === 13 || event.which === 32) {
-        if (areInstHidden) {
-            instructions.style.right = "0em";
-            document.documentElement.style.setProperty("--arrow-border-bottom", "0");
-            document.documentElement.style.setProperty("--arrow-border-top", "1em solid beige");
-            document.documentElement.style.setProperty("--arrow-position", "-1.15em");
-        
-          } else {
-            instructions.style.right = "-36em";
-            document.documentElement.style.setProperty("--arrow-border-top", "0");
-            document.documentElement.style.setProperty("--arrow-border-bottom", "1em solid beige");
-            document.documentElement.style.setProperty("--arrow-position", "1.15em");
-          }
-          areInstHidden = !areInstHidden;
-        
+  if (event.which === 13 || event.which === 32) {
+    if (areInstHidden) {
+      instructions.style.right = "0em";
+      document.documentElement.style.setProperty("--arrow-border-bottom", "0");
+      document.documentElement.style.setProperty(
+        "--arrow-border-top",
+        "1em solid beige"
+      );
+      document.documentElement.style.setProperty("--arrow-position", "-1.15em");
+    } else {
+      instructions.style.right = "-36em";
+      document.documentElement.style.setProperty("--arrow-border-top", "0");
+      document.documentElement.style.setProperty(
+        "--arrow-border-bottom",
+        "1em solid beige"
+      );
+      document.documentElement.style.setProperty("--arrow-position", "1.15em");
     }
+    areInstHidden = !areInstHidden;
+  }
 });
