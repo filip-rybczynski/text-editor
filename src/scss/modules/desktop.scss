@@ -1,9 +1,43 @@
+@keyframes typing {
+
+  12% {
+    transform: translate(0px, -6px);
+  }
+
+  28% {
+    transform: translate(0px, 2px);
+  }
+
+  32% {
+    transform: translate(0px, 0px)
+  }
+
+  to {
+    transform: translate(0px, 0px);
+  }
+
+}
+
 .header-text {
     font-size: 4em;
     margin-top: 0.1em;
     &:first-letter {
       font-size: 1.3em;
       color: $accent;
+    }
+  }
+
+  .dot {
+    display: inline-block;
+    margin: 0 1px;
+
+    animation: typing 1s infinite linear;
+    &:nth-of-type(2) {
+      animation-delay: 0.1s
+    }
+
+    &:nth-of-type(3) {
+      animation-delay: 0.2s
     }
   }
   
@@ -16,6 +50,34 @@
     row-gap: 24px;
     min-height: 100vh;
     min-height: calc(100vh - 37px);
+
+    &__ellipsisA {
+
+      display: inline-block;
+
+      animation-duration: 1s;
+      animation-name: firstdot;
+      animation-iteration-count: infinite;
+
+    }
+
+    &__ellipsisB {
+
+      display: inline-block;
+
+      animation-duration: 1s;
+      animation-name: seconddot;
+      animation-iteration-count: infinite;
+    }
+
+    &__ellipsisC {
+
+      display: inline-block;
+
+      animation-duration: 1s;
+      animation-name: thirddot;
+      animation-iteration-count: infinite;
+    }
   
     &__main-header {
       grid-column: 2 / span 3;
@@ -47,7 +109,7 @@
     &__options {
       grid-column: editor-start / span 1;
       grid-row: editor-end / span 1;
-      width: 280px;
+      width: 360px;
       display: flex;
       justify-content: space-between;
   
