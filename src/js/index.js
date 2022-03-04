@@ -29,7 +29,7 @@ const textFormatButtons = document.querySelectorAll(
 
 const saveTracker = document.querySelector(".save-tracker--js");
 
-const autoSave = debounce(saveAll, 1000, saveTracker);
+const autoSave = debounce(saveAll, 1500, saveTracker);
 
 function saveAll() {
   localStorage.setItem("savedText", editor.value);
@@ -48,11 +48,12 @@ function saveAll() {
 
 const entry = localStorage.getItem("auto-load");
 
+autoSaveCheckbox.checked =
+localStorage.getItem("auto-save") === "true" || false;
+
 if (entry === "true") {
   autoLoadCheckbox.checked = true;
 
-  autoSaveCheckbox.checked =
-    localStorage.getItem("auto-save") === "true" || false;
   if (autoSaveCheckbox.checked) {
     console.log("added!");
     editor.addEventListener("input", autoSave);
@@ -221,6 +222,7 @@ autoLoadCheckbox.addEventListener("change", () => {
 
 autoSaveCheckbox.addEventListener("change", () => {
   if (autoSaveCheckbox.checked) {
+    localStorage.setItem("auto-save", "true");
     saveAll();
     editor.addEventListener("input", autoSave);
 
@@ -228,6 +230,7 @@ autoSaveCheckbox.addEventListener("change", () => {
         button.addEventListener("click", autoSave));
       
   } else {
+    localStorage.setItem("auto-save", "false");
     editor.removeEventListener("input", autoSave);
     textFormatButtons.forEach(button => 
       button.removeEventListener("click", autoSave));
