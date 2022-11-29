@@ -1,7 +1,10 @@
 import "../scss/main.scss";
 import debounce from "./debounce.js";
 
+// Get textarea
 const editor = document.querySelector(".editor__textarea");
+
+// editor content "state"
 let editorContent = {
   text: "",
   isBold: false,
@@ -11,6 +14,7 @@ let editorContent = {
   isRed: false,
 };
 
+// Get all buttons
 const loadButton = document.querySelector(".load--js");
 const saveButton = document.querySelector(".save--js");
 const boldButton = document.querySelector(".bold--js");
@@ -22,15 +26,17 @@ const defaultButton = document.querySelector(".default--js");
 const textOnlyCheckbox = document.querySelector(".text-only--js");
 const autoLoadCheckbox = document.querySelector(".auto-load--js");
 const autoSaveCheckbox = document.querySelector(".auto-save--js");
+const saveTracker = document.querySelector(".save-tracker--js");
 
 const textFormatButtons = document.querySelectorAll(
   ".editor__side-buttons > .editor__button"
 );
 
-const saveTracker = document.querySelector(".save-tracker--js");
-
+// FUNCTIONS
+// create debounced autoSave function
 const autoSave = debounce(saveAll, 1500, saveTracker);
 
+// declare saveAll function
 function saveAll() {
   localStorage.setItem("savedText", editor.value);
   editorContent.text = editor.value;
@@ -46,18 +52,13 @@ function saveAll() {
   }, 2000);
 }
 
+// Page actions
+// Check if auto-load was turned on last time
 const entry = localStorage.getItem("auto-load");
 
-autoSaveCheckbox.checked =
-localStorage.getItem("auto-save") === "true" || false;
-
+// If yes, load saved content automatically
 if (entry === "true") {
   autoLoadCheckbox.checked = true;
-
-  if (autoSaveCheckbox.checked) {
-    console.log("added!");
-    editor.addEventListener("input", autoSave);
-  }
 
   if (localStorage.getItem("text-only") === "true") {
     textOnlyCheckbox.checked = true;
@@ -91,6 +92,15 @@ if (entry === "true") {
   }
 }
 
+// set autoSaveCheckbox
+autoSaveCheckbox.checked =
+  localStorage.getItem("auto-save") === "true" || false;
+// If auto-save option was selected previously, add listener with debounced auto-save function
+if (autoSaveCheckbox.checked) {
+  editor.addEventListener("input", autoSave);
+}
+
+// EVENT LISTENERS
 loadButton.addEventListener("click", () => {
   const textOnlyOn = document.querySelector(".text-only--js").checked;
   if (textOnlyOn) {
@@ -226,14 +236,15 @@ autoSaveCheckbox.addEventListener("change", () => {
     saveAll();
     editor.addEventListener("input", autoSave);
 
-    textFormatButtons.forEach(button => 
-        button.addEventListener("click", autoSave));
-      
+    textFormatButtons.forEach((button) =>
+      button.addEventListener("click", autoSave)
+    );
   } else {
     localStorage.setItem("auto-save", "false");
     editor.removeEventListener("input", autoSave);
-    textFormatButtons.forEach(button => 
-      button.removeEventListener("click", autoSave));
+    textFormatButtons.forEach((button) =>
+      button.removeEventListener("click", autoSave)
+    );
   }
 
   localStorage.setItem(
@@ -242,10 +253,9 @@ autoSaveCheckbox.addEventListener("change", () => {
   );
 });
 
+// INSTRUCTIONS
 const openInstructions = document.querySelector(".open--js");
-const toggleArrow = document.querySelector(".instructions__toggle:before");
 const instructions = document.querySelector(".instructions--js");
-const instructionWidth = instructions.offsetWidth;
 let areInstHidden = true;
 
 openInstructions.addEventListener("click", () => {

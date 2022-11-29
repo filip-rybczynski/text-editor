@@ -3,7 +3,6 @@
 // dotContainer.textContent = "."
 
 const dots = new Array(3).fill(document.createElement("span"));
-console.log(dots);
 
 const editMessage = document.createElement("span");
 editMessage.textContent = "Editing";
@@ -20,6 +19,7 @@ for (let i = 0; i < 3; i++) {
 export default function debounce(fn, delay, saveTracker) {
     let timer;
     const autoSaving = () => {
+      console.log("bump")
       if(saveTracker.innerHTML === '' || saveTracker.innerHTML === 'Saved!!' ) {
         saveTracker.innerHTML = '';
         saveTracker.appendChild(editMessage);

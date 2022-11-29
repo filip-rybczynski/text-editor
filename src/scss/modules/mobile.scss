@@ -10,6 +10,8 @@
     row-gap: 12px;
     padding: 12px 24px;
 
+    position: relative;
+
     @media (max-width: 320px) {
       grid-template-rows: 90px [editor-start] 1fr [editor-end] 60px 40px;
     }
@@ -19,7 +21,6 @@
       grid-row: 1 / span 1;
       @media (max-width: 320px) {
         width: 50vw;
-        margin: auto;
       }
     }
 
@@ -75,8 +76,6 @@
         }
       }
 
-     
-
       &-desktop-text {
         display: none;
       }
@@ -88,6 +87,17 @@
           font-family: "Times New Roman", Times, serif;
         }
       }
+    }
+    
+
+    &__save-tracker {
+      width: 80px;
+      text-align: left;
+      // height: 50px;
+      grid-column: editor-end / span 1;
+      grid-row: 1 / span 1;
+      justify-self: end;
+      align-self: end;
     }
   }
 
